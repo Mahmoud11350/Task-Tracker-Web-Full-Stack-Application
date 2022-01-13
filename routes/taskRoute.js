@@ -15,7 +15,7 @@ route.post("/tasks", auth, async (req, res) => {
     await task.save();
     res.status(201).send(task);
   } catch (e) {
-    res.status.send(e);
+    res.status(500).send(e);
   }
 });
 
@@ -26,10 +26,10 @@ route.delete("/tasks/delete/:id", auth, async (req, res) => {
     if (!task) {
       throw new Error("No Task Match ");
     }
-    res.status(201).send(task);
-    await task.save();
+
+    return res.status(201).send("deleted");
   } catch (e) {
-    res.status(404).send({
+    return res.status(404).send({
       error: e.message,
     });
   }
@@ -70,10 +70,12 @@ route.get("/tasks", auth, async (req, res) => {
   if (req.query.taskProgress) {
     match.taskProgress = req.query.taskProgress === "true";
   }
+
   if (req.query.sortby) {
     const values = req.query.sortby.split(":");
     sort[values[0]] = values[1] === "desc" ? -1 : 1;
   }
+
   try {
     const user = await User.findById(req.user._id).populate({
       path: "tasks",
@@ -84,11 +86,12 @@ route.get("/tasks", auth, async (req, res) => {
         sort,
       },
     });
+
     res.send({
       tasks: user.tasks,
     });
   } catch (e) {
-    res.status(404).send({ e: e.message });
+    res.status(500).send({ e: "No Task Match" });
   }
 });
 module.exports = route;

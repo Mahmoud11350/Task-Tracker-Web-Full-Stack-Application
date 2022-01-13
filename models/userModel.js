@@ -10,15 +10,17 @@ const userSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    age: {
+      type: Number,
+      required: true,
+      trim: true,
+    },
     city: {
       type: String,
       required: true,
       trim: true,
     },
-    age: {
-      type: Number,
-      required: true,
-    },
+
     email: {
       type: String,
       required: true,
@@ -36,9 +38,7 @@ const userSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    avatar: {
-      type: Buffer,
-    },
+
     tokens: [
       {
         token: {

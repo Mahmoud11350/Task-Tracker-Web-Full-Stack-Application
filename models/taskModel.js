@@ -6,9 +6,17 @@ const taskSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    taskDay: {
+      type: String,
+      required: true,
+    },
+    taskHours: {
+      type: String,
+      required: true,
+    },
     taskProgress: {
       type: Boolean,
-      required: true,
+      default: false,
     },
     owner: {
       ref: "User",
