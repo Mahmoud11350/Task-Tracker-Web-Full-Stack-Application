@@ -1,0 +1,39 @@
+.landing {
+  background-image: url(../assets/main.svg);
+  height: 100vh;
+  background-size: cover;
+  background-color: var(--bg-color);
+}
+
+.landing h1 span {
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.landing h1 {
+  color: var(--main-color);
+  padding: 30px;
+}
+
+.landing-content {
+  margin-left: 50px;
+  text-align: center;
+}
+
+.landing-content h2 {
+  color: var(--sec-color);
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+.landing-content h2 span {
+  color: var(--main-color);
+}
+.landing-content p {
+  width: 70%;
+  padding: 10px 0;
+  letter-spacing: 2px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #486581;
+}

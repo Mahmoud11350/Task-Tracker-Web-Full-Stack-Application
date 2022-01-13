@@ -1,0 +1,54 @@
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 80px;
+}
+
+.stats .completetd,
+.stats .in-progess {
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px #666;
+  min-width: 300px;
+  margin-bottom: 20px;
+}
+.stats .completetd {
+  border-bottom: 5px solid #e9b949;
+}
+.stats .in-progess {
+  border-bottom: 5px solid #647acb;
+}
+.stats .task-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stats .task-info svg {
+  font-size: 50px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.stats .task-info.completed svg {
+  background-color: #fcefc7;
+  color: #e9b949;
+}
+.stats .task-info.completed h1 {
+  color: #e9b949;
+}
+.stats .task-info.inprogress svg {
+  background-color: #e0e8f9;
+  color: #647acb;
+}
+.stats .task-info.inprogress h1 {
+  color: #647acb;
+}
+
+.stats h3 {
+  text-align: center;
+  padding: 20px;
+}
