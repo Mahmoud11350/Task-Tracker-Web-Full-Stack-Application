@@ -62,8 +62,8 @@ route.patch("/tasks/update/:id", auth, async (req, res) => {
     });
   }
 });
-// get tasks specific to user
 
+// get tasks specific to user
 route.get("/tasks", auth, async (req, res) => {
   const match = {};
   const sort = {};
@@ -81,8 +81,6 @@ route.get("/tasks", auth, async (req, res) => {
       path: "tasks",
       match,
       options: {
-        limit: parseInt(req.query.limit),
-        skip: parseInt(req.query.skip),
         sort,
       },
     });
