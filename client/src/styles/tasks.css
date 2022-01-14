@@ -12,6 +12,9 @@
   .tasks-wrapper .search-form {
     width: 90%;
   }
+  .tasks-wrapper select {
+    min-width: 130px !important;
+  }
 }
 .tasks-wrapper h1 {
   text-align: center;
@@ -36,11 +39,16 @@
   min-width: 200px;
 }
 
-.task-content {
-  width: 90%;
+.no-tasks {
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
+}
+@media (max-width: 992px) {
+  .no-tasks h1 {
+    font-size: 20px;
+  }
 }
 
 .tasks {
@@ -50,10 +58,14 @@
   margin-top: 40px;
   margin-bottom: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 10px;
 }
-
+@media (max-width: 768px) {
+  .tasks {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
 .tasks > div {
   background-color: #fff;
   margin-left: auto;

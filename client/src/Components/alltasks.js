@@ -36,11 +36,8 @@ function AllTasks() {
     await Axios.patch(`/tasks/update/${id}`, complete);
     newtask();
   };
-  let taskContent = (
-    <div className="no-tasks">
-      <h1>No Task Created Yet</h1>
-    </div>
-  );
+  let taskContent = null;
+  console.log(tasks);
 
   if (tasks !== null) {
     taskContent = tasks.tasks.map((task) => {
@@ -132,7 +129,12 @@ function AllTasks() {
             </Form>
           </Formik>
         </div>
-        <div className="tasks"></div>
+        {tasks === null || Object.keys(tasks).length === 0 ? (
+          <div className="no-tasks">
+            <h1>No Task Created Yet</h1>
+          </div>
+        ) : null}
+
         <div className="tasks">{taskContent}</div>
       </div>
     </>

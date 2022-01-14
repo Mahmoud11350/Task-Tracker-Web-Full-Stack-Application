@@ -1,10 +1,10 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import "../styles/dashboard.css";
 import { useState } from "react";
-import { CSSTransition } from "react-transition-group";
+import closeBtn from "../assets/close-button-svgrepo-com.svg";
 import { GlobalContext } from "../context/appContext";
 function Dashboard() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const Navigate = useNavigate();
   const { Axios, loggingOut, removeLocalToken } = GlobalContext();
   const logoutHandler = async () => {
@@ -18,16 +18,12 @@ function Dashboard() {
   };
   return (
     <>
-      <div
-        className="dashboard"
-        style={{
-          gridTemplateColumns: show ? "300px 1fr" : " 0px 1fr",
-        }}
-      >
-        <CSSTransition timeout={400} in={show} classNames="left-aniamtion">
-          <div
-            className={show ? "dashboard__left show" : "dashboard__left hide"}
-          >
+      <div className="dashboard">
+        <div
+          onClick={() => setShow(!show)}
+          className={show ? "overlay show" : "overlay hide"}
+        >
+          <div className="dashboard__left">
             <div className="fixed">
               <h1>
                 <span>Task</span> Tracker
@@ -101,12 +97,20 @@ function Dashboard() {
                   </NavLink>
                 </li>
               </ul>
+              <div className="close-btn">
+                <img
+                  onClick={() => setShow(!show)}
+                  src={closeBtn}
+                  alt="Close Btn"
+                />
+              </div>
             </div>
           </div>
-        </CSSTransition>
+        </div>
 
         <div className="dashboard__right">
           <svg
+            className="dashboard-toggle"
             onClick={() => setShow(!show)}
             style={{
               color: show ? "var(--main-color)" : "",

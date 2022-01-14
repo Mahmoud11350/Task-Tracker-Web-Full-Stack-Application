@@ -14,12 +14,13 @@ const Profile = React.lazy(() => import("./Components/profile"));
 const NotFound = React.lazy(() => import("./Components/NotFound"));
 function App() {
   const { newtask, loggedIn } = GlobalContext();
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    if (loggedIn) {
+    if (loggedIn || token != null) {
       newtask();
     }
-  }, [loggedIn]);
+  }, [loggedIn, token]);
   return (
     <>
       <Suspense fallback={<Spiner />}>

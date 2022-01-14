@@ -51,3 +51,10 @@ button {
 button:active {
   transform: translateY(-10px);
 }
+
+@media (max-width: 768px) {
+  button {
+    padding: 5px 20px;
+    font-size: 16px;
+  }
+}
