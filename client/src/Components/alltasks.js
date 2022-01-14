@@ -4,6 +4,7 @@ import "../styles/tasks.css";
 
 function AllTasks() {
   const { Axios, tasks, newtask, searchTasks } = GlobalContext();
+  console.log(tasks);
 
   const initialValues = {
     taskTitle: "all",
@@ -129,7 +130,7 @@ function AllTasks() {
             </Form>
           </Formik>
         </div>
-        {tasks === null || Object.keys(tasks).length === 0 ? (
+        {tasks === null || tasks.tasks.length === 0 ? (
           <div className="no-tasks">
             <h1>No Task Created Yet</h1>
           </div>
